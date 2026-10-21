@@ -38,6 +38,13 @@ public class AnnotatedClass {
         out.accept("  protectedGreet: " + (loud ? msg.toUpperCase() : msg));
     }
 
+    @Repeat(2)
+    protected Point protectedMove(Point point, int dx) {
+        Point moved = point.move(dx, dx);
+        out.accept("  protectedMove: " + point + " -> " + moved);
+        return moved;
+    }
+
     protected void protectedNotAnnotated(long x) {
         out.accept("  protectedNotAnnotated: " + x);
     }
@@ -54,6 +61,12 @@ public class AnnotatedClass {
         out.accept("  privateManyParams: c=" + c
                 + ", texts=" + Arrays.toString(texts)
                 + ", numbers=" + Arrays.toString(numbers));
+    }
+
+    @Repeat(2)
+    private void privateIntroduce(Person person, Color color, Point[] points) {
+        out.accept("  privateIntroduce: " + person + ", цвет=" + color
+                + ", points=" + Arrays.toString(points));
     }
 
     private void privateNotAnnotated(int x) {

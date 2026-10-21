@@ -56,7 +56,7 @@ public class MethodInvoker {
             try {
                 arguments = argumentFactory.buildArguments(method.getParameterTypes());
             } catch (IllegalArgumentException e) {
-                out.accept("    пропущен: " + e.getMessage());
+                out.accept("    не удалось подготовить аргументы: " + e.getMessage());
                 out.accept("");
                 continue;
             }
